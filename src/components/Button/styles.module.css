@@ -1,0 +1,44 @@
+.button {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3.2rem 0;
+  padding: 0.8rem;
+  min-width: 8rem;
+  border-radius: 0.8rem;
+  background-color: transparent;
+  color: var(--text-muted);
+}
+
+.button:hover {
+  cursor: pointer;
+  filter: brightness(80%);
+}
+
+.button > svg {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+.green {
+  background-color: var(--primary);
+  color: var(--text-over-primary);
+}
+
+.red {
+  background-color: var(--error);
+  color: var(--text-over-error);
+}
+
+.sm {
+  font-size: 0.5rem;
+}
+
+.md {
+  font-size: 1.5rem;
+}
+
+.lg {
+  font-size: 2.5rem;
+}
