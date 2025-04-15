@@ -25,7 +25,9 @@ export function Steps({
   return (
     <ContentCenter>
       <div className={styles.container}>
-        <Button text="skip" />
+        <div className={styles.buttonSkipContainer}>
+          <Button text="SKIP" size="md" />
+        </div>
 
         <section className={styles.content}>
           <Picture src={image} alt={alt} width={210} height={270} />
