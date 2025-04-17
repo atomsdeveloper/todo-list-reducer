@@ -1,23 +1,9 @@
-.container {
-  width: 100%;
-  height: 100%;
-}
-
 .buttonSkipContainer {
   height: 6.2rem;
   width: 100%;
   display: flex;
   justify-content: start;
   align-items: center;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 4.2rem;
-  margin-bottom: 8.6rem;
 }
 
 .buttonBackAndNextContainer {

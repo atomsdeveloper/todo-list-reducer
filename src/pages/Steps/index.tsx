@@ -1,46 +1,20 @@
 import styles from "./styles.module.css";
 
-import { Heading } from "../../components/Heading";
-import { Picture } from "../../components/Picture";
-import { ContentCenter } from "../../components/ContentCenter";
 import { Button } from "../../components/Button";
 
-type StepsTypes = {
-  title?: string;
-  description?: string;
-  image?: string;
-  alt?: string;
-  buttonBack?: string;
-  buttonNext?: string;
-};
-
-export function Steps({
-  title = "Manage your tasks",
-  description = "You can easily manage all of your daily tasks in DoMe for free",
-  image = "/images/manage-task.png",
-  alt = "Manage your tasks",
-  buttonBack = "",
-  buttonNext = "",
-}: StepsTypes) {
+export function Steps() {
+  // Aqui deverá ser renderizado um slide com os conteúdos do steps
   return (
-    <ContentCenter>
-      <div className={styles.container}>
-        <div className={styles.buttonSkipContainer}>
-          <Button text="SKIP" size="md" />
-        </div>
-
-        <section className={styles.content}>
-          <Picture src={image} alt={alt} width={210} height={270} />
-          <Heading size="md">{title}</Heading>
-          <p>{description}</p>
-        </section>
-
-        <div>
-          <p>
-            Button Back {buttonBack} and Next {buttonNext}
-          </p>
-        </div>
+    <h1 className={styles.content}>
+      <div className={styles.buttonSkipContainer}>
+        <Button text="SKIP" size="md" />
       </div>
-    </ContentCenter>
+
+      {/* DEVERA SER RENDERIZADO MINHAS STEPS ITEMS */}
+
+      <div>
+        <p>Button Back and Next</p>
+      </div>
+    </h1>
   );
 }
