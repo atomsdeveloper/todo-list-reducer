@@ -4,28 +4,16 @@ import { Heading } from "../Heading";
 import { Picture } from "../Picture";
 import { ContentCenter } from "../ContentCenter";
 
-type StepsTypes = {
-  title?: string;
-  description?: string;
-  image?: string;
-  alt?: string;
-};
+import { StepsModel } from "../../models/StepsModel";
 
-export function StepItem({
-  title = "Teste",
-  description,
-  image,
-  alt,
-}: StepsTypes) {
+export function StepItem({ title, description, image, alt }: StepsModel) {
   return (
     <ContentCenter>
-      <div className={styles.container}>
-        <section className={styles.content}>
-          <Picture src={image} alt={alt} width={210} height={270} />
-          <Heading size="md">{title}</Heading>
-          <p>{description}</p>
-        </section>
-      </div>
+      <section className={styles.section}>
+        <Picture src={image} alt={alt} width={210} height={270} />
+        <Heading size="md">{title}</Heading>
+        <p>{description}</p>
+      </section>
     </ContentCenter>
   );
 }
