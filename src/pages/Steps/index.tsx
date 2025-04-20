@@ -1,25 +1,45 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import styles from "./styles.module.css";
 
 import { Button } from "../../components/Button";
 import { StepItem } from "../../components/StepItem";
 
 import { useStepsContext } from "../../context/StepsContext/useStepsContext";
+import { StepsActionsTypes } from "../../context/StepsContext/stepsActions";
 
 export function Steps() {
-  const { state, dispatch } = useStepsContext();
-  console.log(state, dispatch);
+  const [isDisabledBack, setIsDisabledBack] = useState<boolean>(false);
+  const navigate = useNavigate();
 
-  // Aqui deverá ser renderizado um step de acordo com o indice atual do Array de Objetos.
+  const { state, dispatch } = useStepsContext();
+  const { backIndex, nextIndex } = state;
+
+  function handleClickBack() {
+    dispatch({ type: StepsActionsTypes.BACK_STEP_BUTTON });
+  }
+
+  function handleClickNext() {
+    if (nextIndex === 3) navigate("/steps/login");
+    dispatch({ type: StepsActionsTypes.NEXT_STEP_BUTTON });
+  }
+
+  useEffect(() => {
+    setIsDisabledBack(backIndex === -1);
+  }, [backIndex, nextIndex]);
+
   return (
     <div className={styles.content}>
-      {/* Não precisar receber os dados do Array de Objetos pois é o mesmo componente indepentemente do conteúdo atual. */}
       <div className={styles.button}>
-        <Button text="SKIP" size="md" />
+        <Button
+          text="SKIP"
+          size="md"
+          onClick={() => navigate("login")}
+          key={"skip"}
+        />
       </div>
 
-      {/* Deverá receber os dados de um Array de Objetos com os conteúdos dá página atual */}
-      {/* Dados -> title, description, image, alt */}
-      {/* Após receber os dados deverá ser rendeizado meu componente StepItem */}
       <StepItem
         title={state.steps[state.currentIndex].title}
         description={state.steps[state.currentIndex].description}
@@ -28,8 +48,20 @@ export function Steps() {
       />
 
       <div className={styles.button}>
-        <Button text="BACK" size="md" />
-        <Button text="NEXT" size="md" />
+        <Button
+          text="BACK"
+          size="md"
+          onClick={handleClickBack}
+          disabled={isDisabledBack}
+          key={"back"}
+        />
+        <Button
+          text="NEXT"
+          size="md"
+          onClick={handleClickNext}
+          key={"next"}
+          bg={true}
+        />
       </div>
     </div>
   );
