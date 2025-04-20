@@ -6,13 +6,21 @@
   margin: 0 0;
   padding: 0.8rem;
   min-width: 8rem;
-  border-radius: 0.8rem;
+  border-radius: 0.6rem;
   background-color: transparent;
   color: var(--text-muted);
 }
 
+.background {
+  color: var(--text-default);
+  background-color: #8875ff;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+}
+
 .button:hover {
-  cursor: pointer;
   filter: brightness(80%);
 }
 
