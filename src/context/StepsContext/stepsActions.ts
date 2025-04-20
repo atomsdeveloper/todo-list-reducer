@@ -5,16 +5,13 @@ export enum StepsActionsTypes {
 }
 
 // Tipagem dos types que possuem payload.
-export type StepsActionModelWithPayload =
+export type StepsActionModelWithoutPayload =
   | {
       type: StepsActionsTypes.NEXT_STEP_BUTTON;
-      payload: { secondsRemmaning: number };
     }
   | {
       type: StepsActionsTypes.BACK_STEP_BUTTON;
-      payload: { secondsRemmaning: number };
     }
   | {
       type: StepsActionsTypes.SKIP_STEP_BUTTON;
-      payload: { secondsRemmaning: number };
     };
