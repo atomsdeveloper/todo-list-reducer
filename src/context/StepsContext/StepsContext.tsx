@@ -1,11 +1,11 @@
 import { createContext } from "react";
 import { initialStateSteps } from "./initialStateSteps";
-import { StepsActionModelWithPayload } from "./stepsActions";
+import { StepsActionModelWithoutPayload } from "./stepsActions";
 import { StepStateModel } from "../../models/StepsStateModel";
 
 type StepsContextTypes = {
   state: StepStateModel;
-  dispatch: React.Dispatch<StepsActionModelWithPayload>;
+  dispatch: React.Dispatch<StepsActionModelWithoutPayload>;
 };
 
 const initialContextValue = {
